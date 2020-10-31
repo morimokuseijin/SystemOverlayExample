@@ -1,9 +1,6 @@
 package com.morimoku.systemoverlayexample;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,13 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 public class LoginActivityAdapter extends RecyclerView.Adapter<LoginActivityAdapter.LoginViewHolder> {
 
     Context context;
     ArrayList<String> menu = new ArrayList<>();
-
+    
     public LoginActivityAdapter(Context context) {
         this.context = context;
 

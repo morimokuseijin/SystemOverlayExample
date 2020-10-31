@@ -26,19 +26,20 @@ public class ServiceExample extends Service implements InterPass {
     View view;
     RecyclerView recyclerView;
     ImageView finger,bold;
-    TextView textView;
+    TextView textView_user;
+    private RecyclerView recyclerView_user;
 
 
     @Override
     public void onCreate() {
         super.onCreate();
-
-
-
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        context = getApplicationContext();
+        windowManager = (WindowManager) getApplicationContext().getSystemService(Context.WINDOW_SERVICE);
+        view = layoutInflater.inflate(R.layout.activity_service_example, recyclerView);
 
         final LoginActivityAdapter loginActivityAdapter = new LoginActivityAdapter(this);
         LinearLayoutManager linearLayout = new LinearLayoutManager(getApplicationContext());
-
 
         WindowManager.LayoutParams params = null;
         params = new WindowManager.LayoutParams(
@@ -49,16 +50,10 @@ public class ServiceExample extends Service implements InterPass {
                 PixelFormat.OPAQUE);
 
 
-
-        LayoutInflater layoutInflater = LayoutInflater.from(this);
-        context = getApplicationContext();
-        windowManager = (WindowManager) getApplicationContext().getSystemService(Context.WINDOW_SERVICE);
-        view = layoutInflater.inflate(R.layout.activity_service_example, null);
-
         recyclerView = view.findViewById(R.id.recyclerView_name);
         finger = view.findViewById(R.id.imageView);
         bold = view.findViewById(R.id.imageView2);
-        textView = view.findViewById(R.id.textView);
+        textView_user = view.findViewById(R.id.textView_nameInfo);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(linearLayout);
         recyclerView.setAdapter(loginActivityAdapter);
@@ -75,7 +70,10 @@ public class ServiceExample extends Service implements InterPass {
 
     @Override
     public void changeText() {
-        textView.setText("you have clicked it congrats!!");
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
+        view = layoutInflater.inflate(R.layout.activity_service_example, null);
+        textView_user = view.findViewById(R.id.textView_nameInfo);
+       textView_user.setText("you have clicked it congrats!!");
 
     }
 }
