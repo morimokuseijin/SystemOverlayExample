@@ -15,12 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-interface InterPass{
-    void changeText();
-
-}
-
-public class ServiceExample extends Service implements InterPass {
+public class ServiceExample extends Service{
     WindowManager windowManager;
     Context context;
     View view;
@@ -68,12 +63,4 @@ public class ServiceExample extends Service implements InterPass {
         return null;
     }
 
-    @Override
-    public void changeText() {
-        LayoutInflater layoutInflater = LayoutInflater.from(this);
-        view = layoutInflater.inflate(R.layout.activity_service_example, null);
-        textView_user = view.findViewById(R.id.textView_nameInfo);
-       textView_user.setText("you have clicked it congrats!!");
-
-    }
 }

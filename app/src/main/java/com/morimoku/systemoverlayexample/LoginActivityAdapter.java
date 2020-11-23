@@ -46,14 +46,6 @@ public class LoginActivityAdapter extends RecyclerView.Adapter<LoginActivityAdap
     @Override
     public void onBindViewHolder(@NonNull final LoginViewHolder holder, final int position) {
         holder.userName.setText(menu.get(position));
-        holder.userName.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ServiceExample serviceExample = new ServiceExample();
-                serviceExample.changeText();
-            }
-        });
-
 
     }
     @Override
